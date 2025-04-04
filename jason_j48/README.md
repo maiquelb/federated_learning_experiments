@@ -1,4 +1,4 @@
-This application illustrates a Jason agent that runs a j48 algorithm.
+This application illustrates a Jason agent that runs a j48 algorithm. 
 
 Requirements:
 - Java JRE >= 17
