@@ -14,7 +14,9 @@
 
 mas decision_tree {
 
-    agent bob: sample_agent.asl
+    agent bob
+
+    agent alice
 
  
 

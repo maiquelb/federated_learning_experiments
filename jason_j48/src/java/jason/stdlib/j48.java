@@ -65,7 +65,7 @@ public class j48 extends DefaultInternalAction {
 
         public static Term condition2Term(String condition){
             try{
-                Literal l = parseLiteral(condition);
+                Literal l = parseLiteral(condition.replaceAll("FALSE", "false").replaceAll("TRUE", "true"));
                 return l;
             } catch(Exception e){
                 e.printStackTrace();
