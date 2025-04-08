@@ -92,11 +92,11 @@ public class j48 extends DefaultInternalAction {
 
          For this input, the expected output is:
            [
-            [outlook(sunny),humidity(high)],result(play,no,3.0),
-            [outlook(sunny),humidity(normal)],result(play,yes,3.0),
-            [outlook(overcast)],result(play,yes,4.0),
-            [outlook(rainy),windy(true)],result(play,no,2.0),
-            [outlook(rainy),windy(false)],result(play,yes,2.0),
+            [outlook(sunny),humidity(high)],result(play,no,3.0)],
+            [outlook(sunny),humidity(normal)],result(play,yes,3.0)],
+            [outlook(overcast)],result(play,yes,4.0)],
+            [outlook(rainy),windy(true)],result(play,no,2.0)],
+            [outlook(rainy),windy(false)],result(play,yes,2.0)],
            ]
          * 
          * 
