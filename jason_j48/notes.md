@@ -107,10 +107,14 @@ The logical representation of the consequent also depens on its type.
 
 Applying these assumptions, and considering the Definition 1, rules can be written as first-order logic expressions where a conjunction implies an atomic formula. 
 
-For example, the rule 4 of *weather* dataset can be written as$$rainy(outlook)\wedge windy \rightarrow play.$$
+For example, the rule 4 of *weather* dataset can be written as 
+
+$$rainy(outlook)\wedge windy \rightarrow play.$$
 
 
-The rule 5 of *breast tumor* dataset can be written as $$inv\text{-}nodes(0)\wedge right\text{-}upper(breast\text{-}quad) \wedge age(X) \wedge X\geq 48.5 \wedge X<56.5 \rightarrow tumor\text{-}size(43)$$
+The rule 5 of *breast tumor* dataset can be written as 
+
+$$inv\text{-}nodes(0)\wedge right\text{-}upper(breast\text{-}quad) \wedge age(X) \wedge X\geq 48.5 \wedge X<56.5 \rightarrow tumor\text{-}size(43)$$
 
 <!-- 
 
