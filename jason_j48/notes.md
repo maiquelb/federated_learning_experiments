@@ -8,13 +8,13 @@ The antecedent is a set of conditions, which are, in turn, values of attributes.
 
 Consider, for example, the table below, which shows some rules extracted from thr *weather* dataset. 
 
-# | Antecedent                                                 | Consequent |
+| # | Antecedent                                                 | Consequent |
 ---|-------------------------------------------------------------|----------|
-1| *Outlook* is **sunny** and *Humidity* is **high**           | **No**   |
-2| *Outlook* is **sunny** and *Humidity* is **normal**         | **Yes**  |
-3| *Outlook* is **overcast**                                   | **Yes**  |
-4| *Outlook* is **rainy** and *Windy* is **TRUE**              | **No**   |
-5| *Outlook* is **rainy** and *Windy* is **FALSE**             | **Yes**  |
+| 1 | *Outlook* is **sunny** and *Humidity* is **high**           | **No**   |
+| 2 | *Outlook* is **sunny** and *Humidity* is **normal**         | **Yes**  |
+| 3 | *Outlook* is **overcast**                                   | **Yes**  |
+| 4 | *Outlook* is **rainy** and *Windy* is **TRUE**              | **No**   |
+| 5 | *Outlook* is **rainy** and *Windy* is **FALSE**             | **Yes**  |
 
 
 While the consequent may be either *true* or *false*, the attributes and their possible values are in the table below:
