@@ -6,7 +6,7 @@ Rules are composed of an antecedent $A$ and a consequent $C$. The intutition is 
 The antecedent is a set of conditions, which are, in turn, values of attributes. When some of them hold, some consequent is found. The consequent is a single value. 
 
 
-Consider, for example, the table below, which shows some the rules extracted from thr wheather dataset. 
+Consider, for example, the table below, which shows some rules extracted from thr *weather* dataset. 
 
 | Antecedent                                                 | Consequent |
 |-------------------------------------------------------------|----------|
@@ -27,9 +27,9 @@ The existing attributes and their possible values are in the table below:
 
 
 
-breastTumor dataset
+The tables below show another example, considering the *breast tumor* dataset.
 
-| Condições                                                                                              | Valor Previsto |
+| Antecedent                                                              | Consequent |
 |--------------------------------------------------------------------------------------------------------|----------------|
 | *inv-nodes* = **0** and *breast-quad* = **left-lower**                                                 | 22.56          |
 | *inv-nodes* = **0** and *breast-quad* = **right-lower**                                                | 16.57          |
@@ -43,7 +43,7 @@ breastTumor dataset
 | *inv-nodes* = **3**                                                                                    | 27.5           |
 
 
-| Atributo        | Valores Possíveis                        |
+| Attribute        | Possible values                        |
 |------------------|------------------------------------------|
 | *inv-nodes*     | **0**, **2**, **3**                      |
 | *breast-quad*   | **left-lower**, **right-lower**, **left-upper**, **right-upper**, **central** |
@@ -81,52 +81,8 @@ For knowledge representation and reasoning in cognitive agents, each condition i
 
 - *categorical*. Categorical conditions have values framed within a set of classes. The classes determine a *property* of the condition. For instance, in the weather scenario, *outlook* may have the properties *sunny*, *overcast*, and *rainy*, while *humidity* may have the values *high* and *normal*. Thus, categorical condtions are represented as a predicate *v(c)*, where *c* is the condition identifier and *v* is the condition value (e.g. *sunny(outlook)*, *high(temperature)*). The holding of these conditions is conditioned to the agent having the corresponding predicates in its belief base.
 
-- *numeric*. Numeric conditions are related to numeric values. This relation may be equality (i.e. a certain condition has a value) but may be also relational (i.e. a certain condition is lower, higher, etc. that some value). In the case of equality relation, the condition identifier may me seen as a property of a number (e.g. *age(45)*). In the relational case, the condition identifier may be seen as a property of a number that follows the given relation (e.g. $age(X)\wedge X\leq 45$).
+- *numeric*. Numeric conditions are related to numeric values. This relation may be equality (i.e. a certain condition has a value) but may be also relational (i.e. a certain condition is lower, higher, etc. that some value). In the case of equality relation, the condition identifier may me seen as a property of a number (e.g. *age(45)*). In the relational case, the condition identifier may be seen as a property of a number that follows the given relation. This cannot be represented by an atomic formula. Rather, it requires a more complex representation. Let $c$ be a condition identifier, $R$ be a relation $\in\{<,\leq,<,  \geq\}$, $v$ be a number corresponding to the value of $c$, and $V$ be a variable. This condition may pre represented as $c(V)\wedge V\ R\ v$. For example, in the breast tummor scenario,  the condition of age being lower or equal than 45 can be represented as $age(X)\wedge X\leq 45$.
 
-<!-- - The condition identifier is a *term* of first-order logic. For example, the weather scenario has the terms *outlook*, *temperature*, and *windy*.
-
-- The value of an attribute can be seen as its property (e.g. *sunny* is a property of *outlook*).  
-
-- A condition holds *iff* a condition has some property. The holding of an condition --- evaluated with respect to the beliefs of the agent --- may be either *true* or *false*. Thus, it can represented by a *formula*.
-
-- The formula representing a condition is subject to the kind of data of its value:
-
-    - *boolean*
-    - *categorical*
-    - *numeric*
-
-
--->
-
-Thus, *predicate* is the proper representation of a condition in the antecedent of a rule since it allows both (i) to represent properties of elements of the world and (ii) check the truth with respet to the holding of such properties
-
-**Definition**: Let $a$ be a condition belonging to the antecedent $A$ and let $v_a$ be the value of this condition. The representation of this condition in logical-based cognitive agents is $v_a(a)$.
-
-
-
-
-
-From a logical perspective, it is possible to say that $A\rightarrow C$ (i.e. if the antecedent is true, then the consequent is also true).
-
-have the form $antecedent\rightarrow consequent$. The $antecedent$ is a set of conditions. If all the conditions are true, then the antecedent is true and, then, the consequent is also true.
-
-- Rule conditions are logical formulae
-    
-
-    
-    Given a rule $$antecedent\rightarrow consequent$$ 
-    
-    s.t. 
-
-    $$antecedent=\{c_1,\cdots,c_n\}$$
-
-    and
-    
-      
-     $$antecedent=   \bigwedge _c $$
-
-    -   each clause of the rule results in a formula
-        $$attribute(V) \wedge V <rel\_op> value$$
 
 
 From Logical and
