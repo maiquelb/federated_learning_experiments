@@ -83,7 +83,7 @@ Knowledge representation and reasoning in cognitive agents requires means to che
 
  In particular, in the case of BDI agents, it is necessary to have means to evaluate the truth of every condition with respect to the belief base of the agent. If the beliefs are represented through predicates, the conditions must be represented by logical formulae. The form of these formulae depend on the type of the condition value:
 
-- *boolean*. Conditions whose type is *boolean* are either true or false (e.g. *windy* in the weather scenario). The holding of this kind of condition is conditioned to the agent having a belief whose identifier matches with the identifier of the belief. Thus, this condition is represented by a predicate of arity zero.
+- *boolean*. Conditions whose type is *boolean* are either true or false (e.g. *windy* in the weather scenario). The holding of this kind of condition is conditioned to the agent having a belief whose identifier matches with the identifier of the belief. Thus, this condition is represented by a predicate of arity zero (or its negation in the case of conditions with false values).
 
 - *categorical*. Categorical conditions have values framed within a set of classes. The classes determine a *property* of the condition. For instance, in the weather scenario, *outlook* may have the properties *sunny*, *overcast*, and *rainy*, while *humidity* may have the values *high* and *normal*. Thus, categorical condtions are represented as a predicate *v(c)*, where *c* is the condition identifier and *v* is the condition value (e.g. *sunny(outlook)*, *high(temperature)*). The holding of these conditions is conditioned to the agent having the corresponding predicates in its belief base.
 
@@ -95,7 +95,7 @@ Knowledge representation and reasoning in cognitive agents requires means to che
 
 The logical representation of the consequent also depens on its type.
 
-- *boolean*. Boolean consequent of a certain fact as *true* or *false*. This fact is the identifier of the consequent, which is a scenario-dependent value. Thus, the logical representation of *boolean* consequents is a proposition with its identifier. For example, in the *weather* dataset, the consequent stands for playing tennis or not. The consequent may be represented by *play_tennis*, for example. 
+- *boolean*. Boolean consequent of a certain fact as *true* or *false*. This fact is the identifier of the consequent, which is a scenario-dependent value. Thus, the logical representation of *boolean* consequents is a proposition with its identifier (or its negation). For example, in the *weather* dataset, the consequent stands for playing tennis or not. The consequent may be represented by *play_tennis*, for example. 
 
 - *categorical*. Categorical consequents are framed withing a set of values. These values may be seen as a property of the consequent. For example, in the *nursery* dataset, the consequent is the result of application evaluations in a nursery school (i.e., the consequent is the *property* of the result). This result may be *not recommended*,*recommended*,*very recommended*, *priority*,and *special priority*. Thus, the logical representation of categorical consequents is a predicate of arity 1 where the functor is the consequent value and the argument is the consequent identifier (e.g. *recommended(result*)).
 
@@ -109,7 +109,7 @@ Applying these assumptions, and considering the Definition 1, rules can be writt
 
 For example, the rule 4 of *weather* dataset can be written as 
 
-$$rainy(outlook)\wedge windy \rightarrow play.$$
+$$rainy(outlook)\wedge windy \rightarrow \neg play.$$
 
 
 The rule 5 of *breast tumor* dataset can be written as 
