@@ -127,3 +127,43 @@ Relational Learning - pag 75
         
 
         -->
+
+# From logical expressions to Jason Rules
+
+Converting the logical expressions in rules is trivial when the consequent of the consequent of the implication is a positive fact (i.e. it is not a negation).
+For the corresponding rule of 
+$$inv\text{-}nodes(0)\wedge right\text{-}upper(breast\text{-}quad) \wedge age(X) \wedge X\geq 48.5 \wedge X<56.5 \rightarrow tumor\text{-}size(43)$$
+
+is 
+`tumor_size(43):-inv_nodes(0) \& right_upper(breast_quad) \& age(X) \& X>=48.5 \& X<56.5`
+
+
+On the other hand, rules whose consequent is a negated fact require some transformations since Jason (as well as prolog) does not consider negation in the conclusion of a rule. Consider, for instance, the following expression:
+
+$$a\rightarrow \neg c$$
+
+From propositional logic:
+
+$$x\rightarrow \neg y \equiv \neg y\rightarrow \neg x$$
+
+Then, 
+
+$$a\rightarrow \neg c \equiv \neg(\neg c) \rightarrow \neg a$$
+
+and, finally, 
+
+$$a\rightarrow \neg c \equiv c \rightarrow \neg a$$
+
+
+From this background, a negative rule may me written as a positive consequent being consequence of the negated antecedent. Let $$\{a_1,\cdots,a_n\} be a set of antecedents whose consequent is $\neg c$. The corresponding rule is
+
+`
+c :- not(a1 & ... & an)
+`
+
+Consider, for example, the expression $$rainy(outlook)\wedge windy \rightarrow \neg play.$$. The corresponding rule is 
+
+`
+play:- not(rainy(outlook) & windy)
+`
+
