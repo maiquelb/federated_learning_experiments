@@ -2,7 +2,7 @@ This application illustrates a Jason agent that runs a j48 algorithm.
 
 ## Application Scenario
 
-As soon it is launched, the agent [<em>bob</em>](src/agt/bob.asl) runs the learning algorithm. When new rules are learned, [<em>bob</em>](src/agt/bob.asl) shares its new knwoledge with  [<em>alice</em>](src/agt/bob.asl).
+As soon it is launched, the agent [<em>bob</em>](src/agt/bob.asl) runs the learning algorithm. When new rules are learned, [<em>bob</em>](src/agt/bob.asl) shares its new knwoledge with  [<em>alice</em>](src/agt/bob.asl). Both the agents print their rule set as soon it changes.
 
 The learning capability of the agent is implemented through the internal action [`j48`](src/java/jason/stdlib/j48.java).
 
