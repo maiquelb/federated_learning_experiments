@@ -155,7 +155,7 @@ and, finally,
 $$a\rightarrow \neg c \equiv c \rightarrow \neg a$$
 
 
-From this background, a negative rule may me written as a positive consequent being consequence of the negated antecedent. Let $$\{a_1,\cdots,a_n\} be a set of antecedents whose consequent is $\neg c$. The corresponding rule is
+From this background, a negative rule may me written as a positive consequent being consequence of the negated antecedent. Let $$\{a_1,\cdots,a_n\}$$ be a set of antecedents whose consequent is $$\neg c$$. The corresponding rule is
 
 `
 c :- not(a1 & ... & an)
