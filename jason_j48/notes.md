@@ -6,7 +6,7 @@ Rules are composed of an antecedent $A$ and a consequent $C$. The intutition is 
 The antecedent is a set of conditions, which are, in turn, values of attributes. When some of them hold, some consequent is found. The consequent is a single value. 
 
 
-Consider, for example, the table below, which shows some rules extracted from thr *weather* dataset. 
+Consider, for example, the table below, which shows some rules extracted from the *weather* dataset. 
 
 | # | Antecedent                                                 | Consequent |
 ---|-------------------------------------------------------------|----------|
