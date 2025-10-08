@@ -36,11 +36,8 @@ public class j48 extends DefaultInternalAction {
                 Rule r = it.next().toJasonLogicalFormula();
                 listRules.add(r);
                 ts.getAg().addBel(r);
-                //System.out.println(it.next()); 
-                //ts.getAg().addBel(it.next().toJasonLogicalFormula());
             }
             return un.unifies(listRules, args[1]);
-            //return true;
         }
 
         private DataSet run_j48(String datasetFileName){
@@ -66,20 +63,13 @@ public class j48 extends DefaultInternalAction {
 
 
                 
-                System.out.println(arvore.toString());
+                // System.out.println(arvore.toString());
+                
 
                 DataSet ds = new DataSet();
                 if(ds.getFromWekaDecisionTree(arvore.toString(),dataset.classAttribute().name())){
-                   //System.out.println(ds);
-                //    Iterator<DecisionRule> it = ds.getRules().iterator();
-                //    while(it.hasNext())
-                //       System.out.println(it.next().toJasonLogicalFormula());
                     return ds;
                 }
-
-               //format rules to a suitable representation for Jason
-               //return  extrairRegras(arvore.toString(),dataset.classAttribute().name());
-               
                
         
             }catch (Exception e) {
@@ -94,7 +84,9 @@ public class j48 extends DefaultInternalAction {
 
         public static Term condition2Term(String condition){
             try{
-                Literal l = parseLiteral(condition.replaceAll("FALSE", "false").replaceAll("TRUE", "true"));
+                String adaptedCondition = condition;
+                adaptedCondition = adaptedCondition .replaceAll("FALSE", "false").replaceAll("TRUE", "true");
+                Literal l = parseLiteral(adaptedCondition);
                 return l;
             } catch(Exception e){
                 e.printStackTrace();
@@ -145,7 +137,6 @@ public class j48 extends DefaultInternalAction {
             Pattern linhaFolha = Pattern.compile(".*: ([^ ]+) \\((\\d+\\.?\\d*)(/\\d+\\.?\\d*)?\\)");
     
             for (String linha : linhas) { //for each line of the input tree
-                System.out.println("---> " + linha);
                 
 
                 if (!linha.contains(":") && !linha.contains("=")) continue;
@@ -159,35 +150,9 @@ public class j48 extends DefaultInternalAction {
                 }
     
                 if (linhaFolha.matcher(linha).matches()) {
-            //         // Linha com classe (folha)
                      Matcher m = linhaFolha.matcher(linha);
-            //         if (m.find()) {
-            //             String classe = m.group(1);
-            //             String peso = m.group(2);
-    
-    
-            //             // Remove condição final do tipo: windy = TRUE: no (2.0)
-            //             String[] partes = condicaoOuClasse.split(":");
-            //             String cond = partes[0].trim();
-            //             caminhoAtual.push(formatarCond(cond));
-            //             listConditions.add(condition2Term(formatarCond(cond)));
-
-            //             ListTermImpl listRule = new ListTermImpl();
-            //             listRule.add(listConditions.clone());
-            //             listRule.add(condition2Term(String.format("result(%s,%s,%s)",  className, classe, peso)));      
-            //             listResult.add(listRule);                  
-
-            //             listConditions.remove(listConditions.size()-1);
-            //             caminhoAtual.pop(); // Remove condição final
-            //         }
+            
                 } else {
-                    // Condição intermediária, sem o '|'
-                    // if(!condicaoOuClasse.contains("Number of Leaves")&&!condicaoOuClasse.contains("Size of the tree")){
-                    //    condicaoOuClasse = condicaoOuClasse.replace("|   ", "").trim(); // Remove o '|' e o espaço
-                    //    caminhoAtual.push(formatarCond(condicaoOuClasse));
-                    //    listConditions.add(condition2Term(formatarCond(condicaoOuClasse)));
-
-                    // }
                 }
                 
             }
@@ -205,7 +170,6 @@ public class j48 extends DefaultInternalAction {
         }
     
         public static String formatarCond(String cond) {
-            // outlook = sunny -> outlook(sunny)
             return cond.replace("|","").replace(" = ", "(") + ")";
         }
     

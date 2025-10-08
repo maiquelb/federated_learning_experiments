@@ -4,5 +4,5 @@
 +!print_rules([]).   
 
 +!print_rules([H|T])       
-   <- .print(H);
+   <- .print("Receiving rule: ", H);
       !print_rules(T).

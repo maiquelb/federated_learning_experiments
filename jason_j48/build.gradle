@@ -16,7 +16,7 @@ group   'org.jacamo'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
+        languageVersion = JavaLanguageVersion.of(21)
     }
 }
 
@@ -37,6 +37,7 @@ repositories {
 dependencies {
     implementation('org.jacamo:jacamo:1.2')
     implementation 'nz.ac.waikato.cms.weka:weka-stable:3.8.6'
+    implementation name: 'rule2formula-1.0' //place rule2formula-1.0.jar in lib/ folder
 }
 
 sourceSets {
@@ -97,40 +98,6 @@ publishing {
         }
     }
 }
-
-
-task uberJar(type: Jar, dependsOn: 'classes') {
-    group      ' JaCaMo'
-    description 'creates a single runnable jar file with all dependencies'
-    duplicatesStrategy 'exclude'
-
-    manifest {
-        attributes 'Main-Class': 'jacamo.infra.JaCaMoLauncher'
-    }
-    archiveBaseName = 'jacamo-decision_tree' // the name must start with jacamo so that jacamo...jar is found in the classpath
-    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-    from (project.projectDir.absolutePath) {
-        include '**/*.asl'
-        include '**/*.xml'
-        include '**/*.sai'
-        include '**/*.ptl'
-        include '**/*.jcm'
-        include '*.properties'
-    }
-    from (project.buildDir.absolutePath + '/jcm') {
-        include '**/*'
-    }
-    with jar
-
-    doFirst {
-        copy {
-            from 'decision_tree.jcm'
-            rename 'decision_tree.jcm','default.jcm'
-            into project.buildDir.absolutePath + '/jcm'
-        }
-    }
-}
-
 
 task testJaCaMo {
     description 'runs JaCaMo unit tests'

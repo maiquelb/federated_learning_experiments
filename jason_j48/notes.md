@@ -167,3 +167,5 @@ Consider, for example, the expression $$rainy(outlook)\wedge windy \rightarrow \
 play:- not(rainy(outlook) & windy)
 `
 
+## Handling rule metadata
+Metadata (e.g. *support*) are not part of inference rules. They are not part neither of the assumptions (i.e. antecedent) nor of the consequent. Nevertheless, metadata may be important for the agent to reason on how/when/whether using a rule. Jason provides *annotations*, which are resources to add metadata to the knowledge representation. Thus, metadata are added to rules through annotations. E.g.: `play[support(0.2)]:- not(rainy(outlook) & windy)`
