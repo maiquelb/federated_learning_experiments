@@ -1,0 +1,28 @@
+/*
+    decision_tree
+    ---------------------------
+
+    JaCaMo Application File
+
+    This file defines the initial state of the MAS (initial agents, environment, organisation, ....)
+
+    (see jacamo/doc/jcm.html for more information about what can be defined in this file)
+
+    JaCaMo 1.2
+    março 28, 2025 - 10:29:23
+*/
+
+mas rule_based_fl {
+
+    agent bob
+    agent tom
+    agent carol
+    agent alice
+
+
+
+ 
+
+    
+
+}
