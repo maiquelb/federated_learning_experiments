@@ -1,0 +1,23 @@
+/**
+   This agent process a dataset and sends the results to the agent *alice*, which acts as a server in the federeated learning process.
+  
+   This processing is done by using the internal action .process_dataset, which returns a rules set
+
+**/
+
+!start. 
+
+
++!start
+   //  <- .process_dataset("/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breast-cancer-50.J48datasetmetrics", 
+   //                      "/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breast-cancer-50.J48rules", 
+   //                      "/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breast-cancer-50.J48rulesmetrics", 
+   //        X);
+
+        <- .process_dataset("../RulesTemp/breast-cancer-50.J48datasetmetrics", 
+                         "../RulesTemp/breast-cancer-50.J48rules", 
+                         "../RulesTemp/breast-cancer-50.J48rulesmetrics", 
+          X);
+       .print("Sending dataset to server (alice): ", X);
+       .send(alice,achieve,process_dataset(X));
+       .
