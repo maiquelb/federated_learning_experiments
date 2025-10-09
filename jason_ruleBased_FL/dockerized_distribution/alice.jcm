@@ -1,0 +1,11 @@
+
+mas alice_system {
+
+    agent alice
+
+    //platform: jacamo.rest.JCMRest("--rest-port 8081")
+
+    platform: jacamo.rest.JCMRest("--rest-port 8081 --host-address alice")
+     
+
+}
