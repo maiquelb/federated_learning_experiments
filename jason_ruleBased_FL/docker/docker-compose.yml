@@ -1,0 +1,30 @@
+#docker compose up --abort-on-container-exit && docker compose down --remove-orphans
+version: "3.9"
+
+services:
+  alice:
+    image: maiquelb/federated-learning:0.01
+    container_name: alice
+    working_dir: /federated_learning_experiments/jason_ruleBased_FL/centralized
+    command: /bin/sh -c "git pull && gradle alice"
+    ports:
+      - "8081:8081"
+    networks:
+      - flnet
+    restart: "no"
+
+  bob:
+    image: maiquelb/federated-learning:0.01
+    container_name: bob
+    working_dir: /federated_learning_experiments/jason_ruleBased_FL/centralized
+    command: /bin/sh -c "git pull && gradle bob"
+    ports:
+      - "8082:8082"
+    networks:
+      - flnet
+    restart: "no"
+
+networks:
+  flnet:
+    driver: bridge
+
