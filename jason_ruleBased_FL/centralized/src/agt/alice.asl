@@ -12,6 +12,8 @@
    The main goals that this agent can achieve are:
       - process_dataset(D)[source(S)]: process a rule set D received from an agent S. 
       - print_dataset(D): print a rule set D.
+      - announce_as_server: continuosly broadcast a message announcing itself as the server for the learning process.
+      - 
 **/
 
 test_dataset("/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breast-cancer-test.arff").
@@ -20,6 +22,16 @@ print_after_processing(3).
 
 
 
+!announce_as_server. //goal to announce itself a learning server
+
++!start 
+   <- .print("Hello").
+
+
++!announce_as_server : .my_name(Me)
+   <- .broadcast(tell,learning_server(Me));
+      .wait(10000);
+      !announce_as_server.
 
 +!process_dataset(dataset(Metrics, Rules))[source(S)] : test_dataset(T)
    <- .print("****** Processing dataset from ", S, " ******");
