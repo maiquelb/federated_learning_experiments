@@ -54,10 +54,11 @@ print_after_processing(3).
        .print("+++ confusion_matrix: ", CM);
        .print("+++ summary: ", SMR);
        .
-
-
 +!print_dataset(D) : processing_count(X) 
-   <- -+processing_count(X+1).
+   <- -+processing_count(X+1);
+      .
+
+
 
 +!print_dataset_metrics(dataset_metrics(nsamples(ListNSamples),nclasses(Nclasses),classnames(ListCClassnames),classdist(ListClassdist),natt(Natt)))
    <- .print(">> nsamples: ");

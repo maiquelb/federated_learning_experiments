@@ -10,10 +10,24 @@
 
 //As soon as the agent discovers a server for the learning process, it process a dataset and shares the results 
 +learning_server(Ag) 
-   <- .process_dataset("/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breast-cancer-30.J48datasetmetrics", 
-                        "/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breast-cancer-30.J48rules", 
-                        "/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breast-cancer-30.J48rulesmetrics", 
-       X);
-       .print(X);
-       .send(Ag,achieve,process_dataset(X));
-       .
+   <- .wait(2000);
+      // .process_dataset("/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breast-cancer-30.J48datasetmetrics", 
+      //                   "/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breast-cancer-30.J48rules", 
+      //                   "/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breast-cancer-30.J48rulesmetrics", 
+      //  X);
+
+
+      // .process_dataset("/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breastcancer/breastcancer-train-1-of-10-d-no30.J48datasetmetrics", 
+      //                   "/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breastcancer/breastcancer-train-1-of-10-d-no30.J48rules", 
+      //                   "/mnt/1C4C766F4C764414/maiquel/git/federated_learning_experiments/RuleBasedFederateLearing/RulesTemp/breastcancer/breastcancer-train-1-of-10-d-no30.J48rulesmetrics", 
+      //     X);
+
+      .process_dataset("../FL_Rules_exp/outdir/breastcancer-train-1-of-10-d-no30.J48datasetmetrics", 
+                       "../FL_Rules_exp/outdir/breastcancer-train-1-of-10-d-no30.J48rules", 
+                       "../FL_Rules_exp/outdir/breastcancer-train-1-of-10-d-no30.J48rulesmetrics", 
+          X);
+
+
+      .print(X);
+      .send(Ag,achieve,process_dataset(X));
+      .
