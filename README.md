@@ -1,0 +1,2 @@
+- jason_ruleBased_FL - An experiment where the agents inform a set of rules to the central agent, which produces a new, unified set of rules.
+- jason_learning_FL - An experiment where the agents run a learning algorithm and inform the results to the central agent, which produces a new, unified set of rules.
