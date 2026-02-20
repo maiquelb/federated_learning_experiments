@@ -1,0 +1,9 @@
+
+mas bob_system {
+
+    agent tom
+    
+    platform: jacamo.rest.JCMRest("--rest-port 8083 --connect http://127.0.1.1:8081 " )
+    //platform: jacamo.rest.JCMRest("--rest-port 8083 --host-address localhost --connect http://localhost:8081 " )
+     
+}
